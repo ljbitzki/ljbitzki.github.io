@@ -25,29 +25,28 @@ Baixe o laboratório do experimento que está disponível através de um Applian
 
 Importe o arquivo _experimento-sf.ova_ no Virtualbox.
 
-<img src="https://github.com/user-attachments/assets/4400ef0c-6d89-46bf-bdae-8ba328c715f9" alt="Import 01" style="float: left; width: 50%; height: auto;">
-<img src="https://github.com/user-attachments/assets/57dcb5e8-d64f-4e1f-9d6e-b827553b43ad" alt="Import 02" style="float: left; width: 50%; height: auto;">
+<img src="https://github.com/ljbitzki/ljbitzki.github.io/blob/master/Screenshot_20250516_122234.png" alt="Import 01" style="float: left; width: 50%; height: auto;">
+<img src="https://github.com/ljbitzki/ljbitzki.github.io/blob/master/Screenshot_20250516_122409.png" alt="Import 02" style="float: left; width: 50%; height: auto;">
 
 
 > [!CAUTION]
-> É necessário escolher a opção **Include all network adapter MAC address** em *MAC Address Policy*.
+> É necessário escolher a opção **Incluir todos os endereços MAC em placas de rede** em *Política de endereço MAC*.
+
+<img src="https://github.com/ljbitzki/ljbitzki.github.io/blob/master/Screenshot_20250516_122446.png" alt="Import 01" style="float: left; width: 50%; height: auto;">
 
 
-<img src="https://github.com/user-attachments/assets/9a439af3-153d-4ee8-9d97-eec5919e4cc2" alt="Import 01" style="float: left; width: 50%; height: auto;">
-
-
-Clique em *Finish* e aguarde o processo de importação.
+Clique em *Finalizar* e aguarde o processo de importação.
 
 ## O Ambiente do Laboratório
 
-O laboratório é composto por 1 VM e depende de endereçamento IP interno para o funcionamento esperado:
+O laboratório é composto por uma VM e depende de endereçamento IP interno para o funcionamento esperado:
 
 * Xubuntu 24.04 (experimento-sf)
 * Interface de rede **vboxnet0** (geralmente, esta rede está habilitada por padrão numa instalação típica do VirtualBox)
 
 ### Inicializando o ambiente
 
-Selecionar a VM e clicar em *Start*, o Virtualbox poderá emitir um alerta sobre o consumo de recursos, dependendo da disponibilidade atual do host onde o experimento será executado. Clique OK caso ocorra.
+Selecionar a VM e clicar em *Iniciar*, o Virtualbox poderá emitir um alerta sobre o consumo de recursos, dependendo da disponibilidade atual do host onde o experimento será executado. Clique OK caso ocorra.
 
 > [!NOTE]
 > A falta de recursos disponíveis pode ocasionar erros e a VM não inicializar.
