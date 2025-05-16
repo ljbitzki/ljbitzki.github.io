@@ -1,5 +1,5 @@
 
-# README - TrueState-SNA - Experimento
+# TrueState-SNA - Experimento
 
 ## Sobre a aplicação e o ambiente do experimento
 
