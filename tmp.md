@@ -54,7 +54,7 @@ Selecionar a VM e clicar em *Start*, o Virtualbox poderá emitir um alerta sobre
 > Se isso acontecer em um ambiente linux, tente liberar _cache_ de memória RAM com o comando
 > `sudo sh -c 'echo 1 > /proc/sys/vm/drop_caches'`
 
-1. A autenticação da VM *experimento-sf* tem com usuário e senha ***net2d/net2d***.
+1. A autenticação da VM *experimento-sf* tem como usuário e senha ***net2d/net2d***.
 
 2. Abra um terminal na VM e inicialize o ambiente com o comando:
 ```bash
