@@ -1,5 +1,5 @@
 
-# README - net2d
+# README - TrueState-SNA - Experimento
 
 ## Sobre a aplicação e o ambiente do experimento
 
