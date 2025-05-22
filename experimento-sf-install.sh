@@ -113,6 +113,6 @@ echo -e 'Para abrir o Grafana e acompanhar o gráfico de requisições por segun
 sleep 1
 echo -e 'Quando quiser simular um ataque, execute em uma nova aba no terminal: \n\e[33mdocker exec -it ubuntu-rogue /usr/local/bin/dos.sh\e[0m\n'
 sleep 1
-echo -e '\n\e[36mObserve no gráfico do Grafana o volume de acessos subindo e sendo interrompido. Observe também a criação de um serviço de DROP no Netbox, correspondente ao bloqueio do atacante.\n\e[0m\n'
+echo -e 'Observe no gráfico do Grafana o volume de acessos subindo e sendo interrompido. Observe também a criação de um serviço de \e[31mDROP\e[0m no Netbox, correspondente ao bloqueio do atacante.\e[0m\n'
 sleep 1
-echo -e '\nPara reiniciar o experimento, delete o serviço \e[32mDoS\e[0m no Netbox e execute novamente \e[33mdocker exec -it ubuntu-rogue /usr/local/bin/dos.sh\e[0m para um novo ataque.\n'
+echo -e 'Para reiniciar o experimento, delete o serviço \e[32mDoS\e[0m no Netbox e execute novamente \e[33mdocker exec -it ubuntu-rogue /usr/local/bin/dos.sh\e[0m para um novo ataque.\n'
