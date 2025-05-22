@@ -8,7 +8,13 @@ O **TrueState-SNA** é um projeto que visa automatizar a configuração e aplica
  1. Monitoramento da disponibilidade um serviço e liberação no firewall local para possibilitar seu acesso;
  2. Mitigação de ataque DoS em tempo real através de monitoramento de acessos e implantação de regras de firewall para o endereço de origem do atacante.
 
-## Requisitos
+## Opções para o experimento:
+
+ 1. Imagem de **VirtualBox** com ambiente auto-contido já preparado para o experimento (testado em SO Microsoft Windows 10 ou superior e Linux).
+ 2. Baixar todos os artefatos envolvidos e executá-los localmente no computador (testado em SO baseada em Ubuntu versão 20.04 ou mais recente: Ubuntu, Kubuntu, Xubuntu e variáveis)
+
+
+## Opção 1: Requisitos
 
 Antes de iniciar a configuração, certifique-se de que possui os seguintes requisitos de hardware e aplicações instaladas:
 
@@ -17,11 +23,11 @@ Antes de iniciar a configuração, certifique-se de que possui os seguintes requ
 * VirtualBox 7.1 ou superior [link](https://www.virtualbox.org/wiki/Downloads)
 * VirtualBox Extension Pack 7.1 [link](https://www.virtualbox.org/wiki/Downloads)
 
-### Download do Laboratório
+### Opção 1: Download do Laboratório
 
 Baixe o laboratório do experimento que está disponível através de um Appliance do Virtualbox [aqui](https://drive.google.com/file/d/1MJuQxlu-7Nstxtwwlv9CiOo5vvHcApwm/view?usp=sharing).
 
-### Importação do Laboratório
+### Opção 1: Importação do Laboratório
 
 Importe o arquivo _experimento-sf.ova_ no Virtualbox.
 
@@ -37,14 +43,14 @@ Importe o arquivo _experimento-sf.ova_ no Virtualbox.
 
 Clique em *Finalizar* e aguarde o processo de importação.
 
-## O Ambiente do Laboratório
+## Opção 1: O Ambiente do Laboratório
 
 O laboratório é composto por uma VM e depende de endereçamento IP interno para o funcionamento esperado:
 
 * Xubuntu 24.04 (experimento-sf)
 * Interface de rede **vboxnet0** (geralmente, esta rede está habilitada por padrão numa instalação típica do VirtualBox)
 
-### Inicializando o ambiente
+### Opção 1: Inicializando o ambiente
 
 Selecionar a VM e clicar em *Iniciar*, o Virtualbox poderá emitir um alerta sobre o consumo de recursos, dependendo da disponibilidade atual do host onde o experimento será executado. Clique OK caso ocorra.
 
@@ -68,7 +74,7 @@ iniciar-ambiente
 
 <img src="https://github.com/ljbitzki/ljbitzki.github.io/blob/master/Screenshot_20250512_153927.png" alt="Import 05" style="float: left;">
 
-## O Experimento
+## Opção 1: O Experimento
 
 O experimento consiste em:
 
@@ -143,3 +149,22 @@ reiniciar-ambiente
 ```bash
 parar-ambiente
 ```
+
+## Opção 2: Requisitos
+
+Antes de iniciar o experimento, certifique-se de que possui os seguintes requisitos de hardware e aplicações instaladas:
+
+* Processador 64 bits com no mínimo 4 núcleos
+* 4 GB de RAM livres, para uso exclusivo do laboratório
+* Sistema Operacional baseado em Ubuntu versão 20.04 ou mais recente (Ubuntu, Kubuntu, Xubuntu e variáveis)
+* Pacotes *curl*, *rsync*, *wget* e *git* instalados
+* Docker Engine instalado conforme https://docs.docker.com/engine/install/ubuntu/
+
+## Opção 2: Download do Laboratório
+No terminal, rodar:
+```bash
+wget "https://github.com/ljbitzki/ljbitzki.github.io/raw/refs/heads/master/experimento-sf-install.sh" -O "/tmp/experimento-sf-install.sh"
+chmod +x "/tmp/experimento-sf-install.sh"
+/tmp/experimento-sf-install.sh
+
+``'
