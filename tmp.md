@@ -157,9 +157,10 @@ Antes de iniciar o experimento, certifique-se de que possui os seguintes requisi
 * Processador 64 bits com no mínimo 4 núcleos
 * 4 GB de RAM livres, para uso exclusivo do laboratório
 * Sistema Operacional baseado em Ubuntu versão 20.04 ou mais recente (Ubuntu, Kubuntu, Xubuntu e variáveis)
+* Ter permissões de *root* através de *sudo*
 * Pacotes *curl*, *rsync*, *wget* e *git* instalados
 * Docker Engine instalado conforme https://docs.docker.com/engine/install/ubuntu/
-* No intuiti de evitar quaisquer conflitos entre contêiners existentes no computador, sugere-se parar todos os contêiners que possam estar rodando localmente, para isso, execute em um terminal:
+* No intuito de evitar quaisquer conflitos entre contêiners existentes no computador, sugere-se parar todos os contêiners que possam estar rodando localmente, para isso, execute em um terminal:
 ```bash
 while read CID; do docker stop "${CID}"; done < <( docker ps -a | grep -v 'CONTAINER ID' | awk '{print $1}' )
 ```
