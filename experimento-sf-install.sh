@@ -1,6 +1,19 @@
 #!/bin/bash
 
-function instalar_dependencias() {
+while read PKG; do
+  if [ "$( which ${PKG} | wc -l )" -lt 1 ]; then
+    echo -e "Necessário ter o \e[33m${PKG}\e[0m instalado. Execute:"
+    echo -e "sudo apt install \e[33m${PKG}\e[0m -y"
+    echo -e "Após, execute este script novamente: \e[32m/tmp/experimento-sf-install.sh\e[0m"
+    exit 1
+  else
+    echo -e "Dependência \e[32m${PKG}\e[0m já instalada..."
+  fi
+done < <( echo -e 'git\ncurl\nwget\nrsync' )
+
+if [ "$( which docker | wc -l )" -lt 1 ]; then
+  echo "Necessário ter o docker instalado. Execute:"
+  echo '
   for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do
     sudo apt-get remove $pkg -y;
   done
@@ -18,10 +31,40 @@ function instalar_dependencias() {
   sudo groupadd docker
   sudo usermod -aG docker $USER
   newgrp docker
-  instalar_ambiente
-}
+  '
+  echo -e 'Após, execute este script novamente: \e[32m/tmp/experimento-sf-install.sh\e[0m'
+  exit 1
+else
+  echo -e "Dependência \e[32mdocker\e[0m já instalada..."
+fi
 
-function instalar_ambiente() {
+if [ "$( docker -v | grep 'Docker version' | awk -F'.' '{print $1}' | awk '{print $NF}' )" -lt 28 ]; then
+  echo "Necessário ter o docker na versão 28 ou superior instalado. Execute:"
+  echo '
+  for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do
+    sudo apt-get remove $pkg -y;
+  done
+  sudo apt-get update
+  sudo apt-get install ca-certificates curl rsync git wget -y
+  sudo install -m 0755 -d /etc/apt/keyrings
+  sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+  sudo chmod a+r /etc/apt/keyrings/docker.asc
+  echo \
+    "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+    $(. /etc/os-release && echo "${UBUNTU_CODENAME:-$VERSION_CODENAME}") stable" | \
+    sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+  sudo apt-get update
+  sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
+  sudo groupadd docker
+  sudo usermod -aG docker $USER
+  newgrp docker
+  '
+  echo -e 'Após, execute este script novamente: \e[32m/tmp/experimento-sf-install.sh\e[0m'
+  exit 1
+else
+  echo -e "Dependência \e[32mdocker\e[0m já está na versão mínima necessária..."
+fi
+
 mkdir -p "/tmp/experimento-sf"
 cd "/tmp/experimento-sf" || exit 1
 echo -e '\e[33mClonando repositório do Netbox\e[0m'
@@ -62,18 +105,14 @@ echo -e '\e[33mBaixando contêiner e iniciando atacante\e[0m'
 docker run -d --network netbox-docker_default --name=ubuntu-rogue ljbitzki/sbseg2025-sf:rogue
 echo -e '\e[36m******************\e[0m'
 echo -e '\e[36mAmbiente iniciado!\e[0m'
-echo -e '\e[36m******************\e[0m'
-}
-
-if [ "$( which git rsync wget curl docker | wc -l )" -lt 5 ]; then
-  echo "Deseja instalar dependencias? (s/n)"
-  read RESP1
-  if [ "${RESP1}" == 's' ]; then
-    instalar_dependencias
-    instalar_ambiente
-  else
-    exit 1
-  fi
-fi
-
-instalar_ambiente
+echo -e '\e[36m******************\e[0m\n'
+sleep 1
+echo -e 'Para abrir o SSoT (Netbox), abra no navegador: \n\e[33mhttp://localhost:8080/ipam/services/\e[0m\nUsuário: \e[32madmin\e[0m\nSenha: \e[32madmin\e[0m\n'
+sleep 1
+echo -e 'Para abrir o Grafana e acompanhar o gráfico de requisições por segundo, abra no navegador: \n\e[33mhttp://localhost:3000/public-dashboards/7d7b1678f7e94829a1816723c251e934?refresh=auto\n'
+sleep 1
+echo -e 'Quando quiser simular um ataque, execute em uma nova aba no terminal: \n\e[33mdocker exec -it ubuntu-rogue /usr/local/bin/dos.sh\e[0m\n'
+sleep 1
+echo -e '\n\e[36mObserve no gráfico do Grafana o volume de acessos subindo e sendo interrompido. Observe também a criação de um serviço de DROP no Netbox, correspondente ao bloqueio do atacante.\n\e[0m\n'
+sleep 1
+echo -e '\nPara reiniciar o experimento, delete o serviço \e[32mDoS\e[0m no Netbox e execute novamente \e[33mdocker exec -it ubuntu-rogue /usr/local/bin/dos.sh\e[0m para um novo ataque.\n'
