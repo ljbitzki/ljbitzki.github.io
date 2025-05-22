@@ -107,7 +107,7 @@ echo -e '\e[36m******************\e[0m'
 echo -e '\e[36mAmbiente iniciado!\e[0m'
 echo -e '\e[36m******************\e[0m\n'
 sleep 1
-echo -e 'Para abrir o SSoT (Netbox), abra no navegador: \n\e[33mhttp://localhost:8080/ipam/services/\e[0m\nUsuário: \e[32madmin\e[0m\nSenha: \e[32madmin\e[0m\n'
+echo -e '\nPara abrir o SSoT (Netbox), abra no navegador: \n\e[33mhttp://localhost:8080/ipam/services/\e[0m\nUsuário: \e[32madmin\e[0m\nSenha: \e[32madmin\e[0m\n'
 sleep 1
 echo -e 'Para abrir o Grafana e acompanhar o gráfico de requisições por segundo, abra no navegador: \n\e[33mhttp://localhost:3000/public-dashboards/7d7b1678f7e94829a1816723c251e934?refresh=auto\e[0m\n'
 sleep 1
