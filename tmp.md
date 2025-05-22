@@ -166,5 +166,4 @@ No terminal, rodar:
 wget "https://github.com/ljbitzki/ljbitzki.github.io/raw/refs/heads/master/experimento-sf-install.sh" -O "/tmp/experimento-sf-install.sh"
 chmod +x "/tmp/experimento-sf-install.sh"
 /tmp/experimento-sf-install.sh
-
-``'
+```
