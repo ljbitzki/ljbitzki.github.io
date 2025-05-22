@@ -25,7 +25,7 @@ Antes de iniciar a configuração, certifique-se de que possui os seguintes requ
 
 ### Opção 1: Download do Laboratório
 
-Baixe o laboratório do experimento que está disponível através de um Appliance do Virtualbox [aqui](https://drive.google.com/file/d/1MJuQxlu-7Nstxtwwlv9CiOo5vvHcApwm/view?usp=sharing).
+Baixe o laboratório do experimento que está disponível através de um Appliance do Virtualbox [aqui](https://drive.google.com/file/d/1k25KIcguS4ZwFHZLhxPNE2kVo9SmDZj4/view?usp=drive_link).
 
 ### Opção 1: Importação do Laboratório
 
