@@ -165,7 +165,7 @@ while read CID; do docker stop "${CID}"; done < <( docker ps -a | grep -v 'CONTA
 ```
 
 
-## Opção 2: Download do Laboratório
+## Opção 2: Download e execução do Laboratório
 No terminal, rodar:
 ```bash
 wget "https://github.com/ljbitzki/ljbitzki.github.io/raw/refs/heads/master/experimento-sf-install.sh" -O "/tmp/experimento-sf-install.sh"
