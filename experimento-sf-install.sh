@@ -70,6 +70,7 @@ if [ "$( which git rsync wget curl docker | wc -l )" -lt 5 ]; then
   read RESP1
   if [ "${RESP1}" == 's' ]; then
     instalar_dependencias
+    instalar_ambiente
   else
     exit 1
   fi
