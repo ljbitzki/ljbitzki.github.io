@@ -42,13 +42,13 @@ Os selos considerados são:
 
 # Informações básicas
 
-### O experimento possui três opções disponíveis para execução, sendo:
+#### O experimento possui três opções disponíveis para execução, sendo:
 
- 1. **Opção 1:** Imagem de **VirtualBox** com ambiente auto-contido já preparado para o experimento (testado em Sistema Operacional Microsoft Windows 10 ou superior e distribuições Linux baseada em Ubuntu versão 20.04 ou mais recente: Ubuntu, Kubuntu, Xubuntu e variantes);
+ 1. **Opção 1:** Imagem de **VirtualBox** com ambiente auto-contido já preparado para o experimento (testado em Sistema Operacional Microsoft Windows 10 ou superior e distribuições Linux baseada em Ubuntu versão 20.04 ou mais recente: Ubuntu, Kubuntu, Xubuntu e variantes) - o ambiente como usuário e senha **experimento/experimento**;
  2. **Opção 2:** Download  de todos os contêineres envolvidos e execução destes, localmente em um desktop ou laptop (testado em SO baseada em Ubuntu versão 20.04 ou mais recente: Ubuntu, Kubuntu, Xubuntu e variantes); ou
- 3. **Opção 3:** Acesso, através de Remote Desktop utilizando VPN Wireguard, a uma máquina virtual rodando o ambiente auto-contido já preparado para o experimento. Esta opção é **idêntica** à Opção 1, porém, encontra-se disponível, em execução, em servidor remoto, sendo disponibilizada apenas no intuito de facilitar a reprodução do experimento com o mínimo de setup necessário por parte da comiisão avaliadora.
+ 3. **Opção 3:** Acesso, através de Remote Desktop utilizando VPN Wireguard, a uma máquina virtual rodando o ambiente auto-contido já preparado para o experimento. Esta opção é **idêntica** à Opção 1, porém, encontra-se disponível, em execução, em servidor remoto, sendo disponibilizada apenas no intuito de facilitar a reprodução do experimento com o mínimo de setup necessário por parte da comiisão avaliadora. O ambiente como usuário e senha **experimento/experimento**
 
-#### Requisitos de software e hardware para cada Opção de execução são:
+### Requisitos de software e hardware para cada Opção de execução são:
 
  1. **Opção 1:** Nesta opção, deve ser feito o download e importação de um Appliance Virtual (arquivo .ova) e execução do ambiente virtualizado utilizando VirtualBox. Para tanto, são necessários: Sistema Operacional Microsoft Windows 10 ou superior e distribuições Linux baseada em Ubuntu versão 20.04 ou mais recente: Ubuntu, Kubuntu, Xubuntu e variantes), processador 64 bits com no mínimo 4 núcleos e flag de virtualzação VT-x ativada na BIOS, 4GB de memória RAM para uso exclusivo no experimento, VirtualBox 7.1 ou superior com Extension Pack correspondente à versão do VirtualBox.
  2. **Opção 2:** Nesta opção, todo experimento será executado em ambiente local através do download e execução automatizada de todos os componentes utilizando Docker. Para isto, são necessários: Sistema Operacional Linux baseado em Ubuntu versão 20.04 ou mais recente: Ubuntu, Kubuntu, Xubuntu e variantes), processador 64 bits com no mínimo 4 núcleos, 4GB de memória RAM para uso exclusivo no experimento, Docker Engine versão 26 ou superior e alguns pacotes disponíveis no repositório oficial (ver dependências); ou
@@ -58,23 +58,23 @@ Os selos considerados são:
 
 # Dependências
 
-### O experimento possui três opções disponíveis para execução, tendo cada um deles as seguintes dependências:
+#### O experimento possui três opções disponíveis para execução, tendo cada um deles as seguintes dependências:
 
  1. **Opção 1:** Cumpridos os requisitos descritos na seção anterior, referentes a **Opção 1**, esta opção não possui dependências.
- 2. **Opção 2:** Cumpridos os requisitos descritos na seção anterior, referentes a **Opção 2**, é necessário certificar-se que o Docker Engine versão 26 ou superior esteja instalado conforme descrito na [página oficial da ferramenta] (https://docs.docker.com/engine/install/ubuntu/), bem como a seção [postinstall](https://docs.docker.com/engine/install/linux-postinstall/), além dos pacotes __curl__, __rsync__, __wget__ e __git__ instalados.
- 3. **Opção 3:** Em Sistema Operacional Linux baseado em Ubuntu versão 20.04 ou mais recente: Ubuntu, Kubuntu, Xubuntu e variantes, é necessário a instalação de aplicação com capacidade de execução RDP (sugere-se xrdp, vinagre ou remmina). Em Sistema Operacional Microsoft Windows 10 ou superior a aplicação RDP é nativa. Em ambos sistemas operacionais, é requisito a instalação de [cliente de VPN Wireguard](https://www.wireguard.com/install/)
+ 2. **Opção 2:** Cumpridos os requisitos descritos na seção anterior, referentes a **Opção 2**, é necessário certificar-se que o Docker Engine versão 26 ou superior esteja instalado conforme descrito na [página oficial da ferramenta](https://docs.docker.com/engine/install/ubuntu/), bem como a seção [postinstall](https://docs.docker.com/engine/install/linux-postinstall/), além dos pacotes __curl__, __rsync__, __wget__ e __git__ instalados.
+ 3. **Opção 3:** Em Sistema Operacional Linux baseado em Ubuntu versão 20.04 ou mais recente: Ubuntu, Kubuntu, Xubuntu e variantes, é necessário a instalação de aplicação com capacidade de execução RDP (sugere-se xrdp, vinagre ou remmina). Em Sistema Operacional Microsoft Windows 10 ou superior a aplicação RDP é nativa (_mstsc_). Em ambos sistemas operacionais, é requisito a instalação de [cliente de VPN Wireguard](https://www.wireguard.com/install/)
 
 ---
 
 # Preocupações com segurança
 
-### O experimento possui três opções disponíveis para execução, tendo cada um deles as seguintes preocupações com segurança:
+#### O experimento possui três opções disponíveis para execução, tendo cada um deles as seguintes preocupações com segurança:
 
  1. **Opção 1:** Por tratar-se de execução de Appliance pronta e virtualizada em ambiente auto contido, não há considerações quanto a preocupações de segurança nesta opção.
  2. **Opção 2:** Durante a execução do conjunto de contêineres envolvidos, dependendo das configurações do dispositivo que estiver hospedando o experimento, as portas **3000**, **8000** e **8080** poderão estar abertas para a rede local, dependendo das configurações de firewall, encaminhamento de portas e perfil de segurança das interfaces de rede. 
  3. **Opção 3:** Por tratar-se de ambiente auto contido e sendo executado em servidor remoto, as implicações de segurança são inerente ao vazamento das credenciais da VPN e do acesso ao servidor. As ações de contenção do ambiente para a proteção do sistema operacional remoto foram tratadas em nível de redução de privilégios, restrição do uso da rede para acesso somente à rede local exclusiva do host e mecanismo de auto destruição e recuperação para o estado anterior, caso necessário.
 
-#### Preocupações com segurança adicionais
+#### Preocupações adicionais a com segurança
 
 Cabe ressaltar que todas as senhas, chaves de API e outros elementos secretos dos componentes foram gerados para o propósito da demonstração do experimento, de tal forma que sua força de segurança foram propositalmente baixadas para facilitar o experimento. As senhas, chaves de API e chaves RSA do SSH utilizada são descartáveis e servem apenas ao propósito do experimento.
 
@@ -82,33 +82,164 @@ Cabe ressaltar que todas as senhas, chaves de API e outros elementos secretos do
 
 # Instalação
 
-O processo de baixar e instalar a aplicação deve ser descrito nesta seção. Ao final deste processo já é esperado que a aplicação/benchmark/ferramenta consiga ser executada.
+#### O experimento possui três opções disponíveis para execução, tendo cada um deles as seguintes etapas de instalação:
+
+### **Opção 1: Appliance de VirtualBox**
+
+1. Baixe o appliance (arquivo .ova) do experimento que está disponível através do [link](https://drive.google.com/file/d/1BUtxw44hJZU3qM6vjIrq41DDfaBBxZ_h/view?usp=sharing).
+2. Importe o arquivo __exp-sf-sbseg2025.ova__ baixado no VirtualBox:
+   
+<img src="https://github.com/ljbitzki/ljbitzki.github.io/blob/master/Screenshot_20250516_122234.png" alt="Import 01" style="float: left; width: 50%; height: auto;">
+
+<img src="https://github.com/ljbitzki/ljbitzki.github.io/blob/master/Screenshot_20250516_122409.png" alt="Import 02" style="float: left; width: 50%; height: auto;">
+
+3. Clique em _Finalizar_ e aguarde o processo de importação.
+
+4. Execute a VM recém importada.
+
+<img src="https://github.com/ljbitzki/ljbitzki.github.io/blob/master/Screenshot_20250525_141518.png" alt="Import 03" style="float: left; width: 50%; height: auto;">
+
+### **Opção 2: Execução de contêineres localmente**
+
+1. Em um terminal do Linux, executar:
+```bash
+wget "https://github.com/ljbitzki/ljbitzki.github.io/raw/refs/heads/master/experimento-sf-install.sh" -O "/tmp/experimento-sf-install.sh" ; chmod +x "/tmp/experimento-sf-install.sh" ; /tmp/experimento-sf-install.sh
+```
+2. Aguarde o término do processo de criação do ambiente.
+
+_(Caso alguma dependência ou requisito anteriormente descrito não tenham sido cumpridos, o script de instalação apresentará em tela as opções de resolução dos elementos faltantes)_
+
+### **Opção 3: Acesso _remote desktop_ ao ambiente em servidor remoto**
+
+1. Aguardando preparação
+2. Aguardando preparação
+3. Aguardando preparação
 
 ---
 
 # Teste mínimo
 
-Esta seção deve apresentar um passo a passo para a execução de um teste mínimo.
-Um teste mínimo de execução permite que os revisores consigam observar algumas funcionalidades do artefato. 
-Este teste é útil para a identificação de problemas durante o processo de instalação.
+#### O experimento possui três opções disponíveis para execução, tendo cada um deles os seguintes testes mínimos:
+
+### **Opção 1: Appliance de VirtualBox**
+
+Estando logado na máquina virtual recém importada, abrir o terminal e executar:
+
+```bash
+docker ps -a
+```
+Caso o retorno seja uma lista vazia, o Docker Engine estará pronto para a execução do experimento.
+
+<img src="https://github.com/ljbitzki/ljbitzki.github.io/blob/master/Screenshot_20250525_142859.png" alt="Import 04" style="float: left; width: 50%; height: auto;">
+
+### **Opção 2: Execução de contêineres localmente**
+
+Estando logado na máquina virtual recém importada, certificar-se de que há conexão com a internet e o Docker Engine está pronto:
+Abra o terminal e execute:
+
+```bash
+ping -c 3 github.com
+```
+<img src="https://github.com/ljbitzki/ljbitzki.github.io/blob/master/Screenshot_20250525_143939.png" alt="Import 05" style="float: left; width: 50%; height: auto;">
+
+Caso o retorno seja similar, há conexão com a internet através da máquina virtual.
+
+```bash
+docker ps -a
+```
+Caso o retorno seja uma lista vazia, o Docker Engine estará pronto para a execução do experimento.
+
+<img src="https://github.com/ljbitzki/ljbitzki.github.io/blob/master/Screenshot_20250525_143226.png" alt="Import 06" style="float: left; width: 50%; height: auto;">
+
+### **Opção 3: Acesso _remote desktop_ ao ambiente em servidor remoto**
+
+Estando logado no servidor remoto, abrir o terminal e executar:
+```bash
+docker ps -a
+```
+Caso o retorno seja uma lista vazia, o Docker Engine estará pronto para a execução do experimento.
+
+<img src="https://github.com/ljbitzki/ljbitzki.github.io/blob/master/Screenshot_20250525_142859.png" alt="Import 07" style="float: left; width: 50%; height: auto;">
 
 ---
 
 # Experimentos
 
-Esta seção deve descrever um passo a passo para a execução e obtenção dos resultados do artigo. Permitindo que os revisores consigam alcançar as reivindicações apresentadas no artigo. 
-Cada reivindicações deve ser apresentada em uma subseção, com detalhes de arquivos de configurações a serem alterados, comandos a serem executados, flags a serem utilizadas, tempo esperado de execução, expectativa de recursos a serem utilizados como 1GB RAM/Disk e resultado esperado. 
-
-Caso o processo para a reprodução de todos os experimento não seja possível em tempo viável. Os autores devem escolher as principais reivindicações apresentadas no artigo e apresentar o respectivo processo para reprodução.
-
----
+#### O experimento possui três opções disponíveis para execução, tendo cada um deles os seguintes etapas para a obtenção das reivindicações:
 
 ## Reivindicações: Cenário 1 - Liberação automatizada de porta quando serviço estiver pronto
 
+#### Utilizando as **Opções 1 e 3 (Appliance de VirtualBox e _remote desktop_ no ambiente em servidor remoto**)
+
+Abrir o terminal e executar o alias que verifica o estado do iptables do servidor:
+
+```bash
+verificar-firewall-servidor
+```
+
+#### Utilizando a **Opção 2 (Execução de contêineres localmente)**
+
+Abrir o terminal e executar o comando para inspecionar o estado do iptables do servidor:
+
+```bash
+docker exec -it ubuntu-server iptables -nL
+```
+
+Observar a implantação da regra de firewall permitindo o acesso à porta 80 tão logo o contêiner do servidor _nginx_ subiu e ficou pronto para aceitar requisições.
+
+<img src="https://github.com/ljbitzki/ljbitzki.github.io/blob/master/Screenshot_20250525_150925.png" alt="Import 09" style="float: left; width: 50%; height: auto;">
+
+
 ## Reivindicações: Cenário 2 - Mitigação automatizada de ataque DoS
+
+1. Abrir o navegador no servidor virtual e acessar o [Netbox](http://localhost:8080/ipam/services/) e o [Grafana](http://localhost:3000/public-dashboards/7d7b1678f7e94829a1816723c251e934?refresh=auto)
+
+Note que o Netbox tem como usuário e senha **admin/admin**
+
+2. No Netbox, verifique que há um serviço HTTP para o _device_ container-nginx. Este serviço foi aplicado como regra de firewall assim que o nginx ficou disponível.
+
+<img src="https://github.com/ljbitzki/ljbitzki.github.io/blob/master/Screenshot_20250525_152105.png" alt="Import 10" style="float: left; width: 50%; height: auto;">
+
+3. No Grafana, observar a baixa contagem de acessos. Os contêineres ubuntu-client e ubuntu-rogue possuem scripts que acessam o contêiner ubuntu-server aleatoriamente de 1 a 9 vezes por segundo, simulando acessos considerados normais.
+
+<img src="https://github.com/ljbitzki/ljbitzki.github.io/blob/master/Screenshot_20250525_152616.png" alt="Import 11" style="float: left; width: 50%; height: auto;">
+
+#### Utilizando as **Opções 1 e 3 (Appliance de VirtualBox e _remote desktop_ no ambiente em servidor remoto**)
+
+4. Abrir um novo terminal e executar o alias para simular um ataque:
+
+```bash
+iniciar-ataque
+```
+
+#### Utilizando a **Opção 2 (Execução de contêineres localmente)**
+
+4. Abrir um novo terminal e executar o comando para simular um ataque:
+
+```bash
+docker exec -it ubuntu-rogue /usr/local/bin/dos.sh
+```
+
+5. No Grafana, observar a anomalia no número de acessos. O contêiner ubuntu-rogue dispara uma rajada aleatória entre 100 e 150 acessos por segundo contra o contêiner ubuntu-server, simulando um ataque.
+
+<img src="https://github.com/ljbitzki/ljbitzki.github.io/blob/master/Screenshot_20250525_153002.png" alt="Import 12" style="float: left; width: 50%; height: auto;">
+
+_Note que poucos segundos após o início do ataque, o mesmo foi interrompido. Tão logo o monitoramento percebeu a nomalia no número de acessos, houve a implantação da regra de firewall bloqueando o acesso do IP do atacante._
+
+6. No Netbox, recarregue a página e verifique que há um novo serviço para o _device_ container-nginx. Este serviço foi aplicado como regra de firewall com _source_ do IP do atacante assim que o ataque foi identificado.
+
+<img src="https://github.com/ljbitzki/ljbitzki.github.io/blob/master/Screenshot_20250525_153354.png" alt="Import 13" style="float: left; width: 50%; height: auto;">
+
+#### Utilizando as **Opções 1 e 3 (Appliance de VirtualBox e _remote desktop_ no ambiente em servidor remoto**)
+
+7. Para reiniciar o experimento, pressione Ctrl+C no terminal do comando _iniciar-ataque_ e delete o serviço _DoS_ no Netbox. A remoção do serviço fará o deploy da remoção da regra de bloqueio no firewall do servidor nginx.
+
+#### Utilizando a **Opção 2 (Execução de contêineres localmente)**
+
+7. Para reiniciar o experimento, pressione Ctrl+C no terminal do comando _docker exec -it ubuntu-rogue /usr/local/bin/dos.sh_ e delete o serviço _DoS_ no Netbox. A remoção do serviço fará o deploy da remoção da regra de bloqueio no firewall do servidor nginx.
 
 ---
 
-# LICENCE
+# LICENSE
 
 Este projeto está licenciado sob a Licença GNU - veja o arquivo [LICENSE](LICENSE) para mais detalhes.
