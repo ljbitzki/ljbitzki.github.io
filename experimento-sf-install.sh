@@ -120,6 +120,6 @@ echo -e 'Quando quiser simular um \e[95mataque\e[0m, execute em uma nova aba no 
 sleep 1.5
 echo -e 'No navegador, observe no gráfico do Grafana o volume de acessos subindo e sendo interrompido pela implementação da regra reativa no firewall. Observe também a criação de um serviço de \e[31mDROP\e[0m no Netbox, correspondente ao bloqueio do atacante.\e[0m\n'
 sleep 1.5
-echo -e 'Para reiniciar o experimento, pressione Ctrl+C no terminal do comando \e[33miniciar-ataque\e[0m e delete o serviço \e[32mDoS\e[0m no Netbox.'
+echo -e 'Para reiniciar o experimento, pressione Ctrl+C no terminal do comando \e[33miniciar-ataque\e[0m e delete o serviço \e[32mDoS\e[0m no Netbox.\n'
 sleep 1.5
 echo -e 'Execute novamente \e[33miniciar-ataque\e[0m para uma nova simulação.\n'
