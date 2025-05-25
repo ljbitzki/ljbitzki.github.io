@@ -1,5 +1,49 @@
+# TrueState-SNA: Orquestração Segura e Declarativa de Firewalls Baseada em Fonte Única de Verdade
 
-# TrueState-SNA - Experimento
+### Objetivo do Artefato:
+Este artefato tem como objetivo exemplificar o funcionamento prático de um cenário real de aplicação do **TrueState-SNA**, em que dois cenários são simulados e a execução das funcionalidades são demonstradas.
+
+**No primeiro cenário**, quando um servidor web é iniciado e fica pronto para aceitar requisições, um mecanismo interno no servidor aciona a API do **TrueState-SNA**, que processa a informação e cria um serviço do tipo ACCEPT na SSoT, que por sua vez aciona de volta a API e desencadeia a criação de uma regra de **iptables** para liberação de porta 80 no servidor, permitindo que ele seja acessado.
+
+**No segundo cenário**, o servidor web possui um monitor de acessos por segundo e, ao detectar uma anomalia no número de requisições, um mecanismo interno no servidor aciona a API do **TrueState-SNA**, que processa a informação e cria um serviço do tipo DROP na SSoT com _source_ sendo o endereço IP do atacante, que por sua vez aciona de volta a API e desencadeia a criação de uma regra de **iptables** para o imediato bloqueio do IP do atacante, interrompendo o ataque.
+
+### Resumo do Artigo:
+_A crescente complexidade dos ambientes de rede e a diversidade de dispositivos de seguran¸ca tornam o gerenciamento consistente de políticas de firewall uma tarefa desafiadora. Este trabalho apresenta a ferramenta TrueState-SNA, que propõe uma abordagem centralizada, segura e auditável para a gestão de firewalls baseada em uma Fonte Unica de Verdade (SSoT). A solução suporta múltiplos vendors, integra pipelines de automação e permite a adaptação automática de políticas com base em eventos
+e estados de rede. O artigo descreve a arquitetura da ferramenta, seus diferenciais técnicos e apresenta uma comparação com soluções relacionadas._
+
+---
+
+## Estrutura do README.md
+
+Este README.md está organizado nas seguintes seções:
+
+1.  **Título e Resumo:** Título do projeto, objetivo do artefato e resumo do artigo.
+2.  **Estrutura do README.md:** A presente estrutura.
+3.  **Selos considerados:** Lista dos Selos a serem considerados no processo de avaliação.
+4.  **Informações básicas:**
+5.  **Dependências:**
+4.  **Preocupações com segurança:** Lista das preocupações com a segurança.
+5.  **Instalação:** Instruções passo a passo para instalar a ferramenta.
+6.  **Teste mínimo:** Instruções para construir e executar a ferramenta usando Docker.
+7.  **Experimentos:** Instruções para configurar as chaves de API.
+7.1.  **Opção**
+9. **Licença:** Informações sobre a licença do projeto.
+
+---
+
+## Selos considerados
+
+
+
+---
+
+## Informações básicas
+
+
+
+---
+
+## Dependências
 
 ## Sobre a aplicação e o ambiente do experimento
 
@@ -173,3 +217,8 @@ wget "https://github.com/ljbitzki/ljbitzki.github.io/raw/refs/heads/master/exper
 chmod +x "/tmp/experimento-sf-install.sh"
 /tmp/experimento-sf-install.sh
 ```
+
+
+## Licença
+
+Este projeto está licenciado sob a Licença GNU - veja o arquivo [LICENSE](LICENSE) para mais detalhes.
