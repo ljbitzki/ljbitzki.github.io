@@ -101,6 +101,7 @@ done
 echo -e '\e[33mBaixando contêiner e iniciando solução\e[0m'
 docker run -d --network netbox-docker_default --name=net2d ljbitzki/sbseg2025-sf:net2d
 echo -e '\e[33mBaixando contêiner e iniciando servidor nginx\e[0m'
+sleep 5
 docker run --cap-add=NET_ADMIN -d --network netbox-docker_default --name=ubuntu-server ljbitzki/sbseg2025-sf:server
 echo -e '\e[33mBaixando contêiner e iniciando cliente\e[0m'
 docker run -d --network netbox-docker_default --name=ubuntu-client ljbitzki/sbseg2025-sf:client
