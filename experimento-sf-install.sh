@@ -116,10 +116,10 @@ echo -e '\nPara abrir o SSoT (Netbox), abra no navegador: \n\e[33mhttp://localho
 sleep 1.5
 echo -e 'Para abrir o Grafana e acompanhar o gráfico de requisições por segundo, abra no navegador: \n\e[33mhttp://localhost:3000/public-dashboards/7d7b1678f7e94829a1816723c251e934?refresh=auto\e[0m\n'
 sleep 1.5
-echo -e 'Quando quiser simular um \e[95mataque\e[0m, execute em uma nova aba no terminal: \n\e[33miniciar-ataque\e[0m e pressione Enter.\n'
+echo -e 'Quando quiser simular um \e[95mataque\e[0m, execute em uma nova aba no terminal: \n\e[33mdocker exec -it ubuntu-rogue /usr/local/bin/dos.sh\e[0m e pressione Enter.\n'
 sleep 1.5
 echo -e 'No navegador, observe no gráfico do Grafana o volume de acessos subindo e sendo interrompido pela implementação da regra reativa no firewall. Observe também a criação de um serviço de \e[31mDROP\e[0m no Netbox, correspondente ao bloqueio do atacante.\e[0m\n'
 sleep 1.5
-echo -e 'Para reiniciar o experimento, pressione Ctrl+C no terminal do comando \e[33miniciar-ataque\e[0m e delete o serviço \e[32mDoS\e[0m no Netbox.\n'
+echo -e 'Para reiniciar o experimento, pressione Ctrl+C no terminal do comando \e[33mdocker exec -it ubuntu-rogue /usr/local/bin/dos.sh\e[0m e delete o serviço \e[32mDoS\e[0m no Netbox.\n'
 sleep 1.5
-echo -e 'Execute novamente \e[33miniciar-ataque\e[0m para uma nova simulação.\n'
+echo -e 'Execute novamente \e[33mdocker exec -it ubuntu-rogue /usr/local/bin/dos.sh\e[0m para uma nova simulação.\n'
