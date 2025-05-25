@@ -32,27 +32,51 @@ Este README.md está organizado nas seguintes seções:
 
 # Selos considerados
 
-Os autores devem descrever quais selos devem ser considerados no processo de avaliação. Como por exemplo: ``Os selos considerados são: Disponíveis e Funcionais.''
+Os selos considerados são:
+- Artefatos Disponíveis (SeloD)
+- Artefatos Funcionais (SeloF)
+- Artefatos Sustentáveis (SeloS)
+- Experimentos Reprodutíveis (SeloR)
 
 ---
 
 # Informações básicas
 
-Esta seção deve apresentar informações básicas de todos os componentes necessários para a execução e replicação dos experimentos. 
-Descrevendo todo o ambiente de execução, com requisitos de hardware e software.
+### O experimento possui três opções disponíveis para execução, sendo:
+
+ 1. **Opção 1:** Imagem de **VirtualBox** com ambiente auto-contido já preparado para o experimento (testado em Sistema Operacional Microsoft Windows 10 ou superior e distribuições Linux baseada em Ubuntu versão 20.04 ou mais recente: Ubuntu, Kubuntu, Xubuntu e variantes);
+ 2. **Opção 2:** Download  de todos os contêineres envolvidos e execução destes, localmente em um desktop ou laptop (testado em SO baseada em Ubuntu versão 20.04 ou mais recente: Ubuntu, Kubuntu, Xubuntu e variantes); ou
+ 3. **Opção 3:** Acesso, através de Remote Desktop utilizando VPN Wireguard, a uma máquina virtual rodando o ambiente auto-contido já preparado para o experimento. Esta opção é **idêntica** à Opção 1, porém, encontra-se disponível, em execução, em servidor remoto, sendo disponibilizada apenas no intuito de facilitar a reprodução do experimento com o mínimo de setup necessário por parte da comiisão avaliadora.
+
+#### Requisitos de software e hardware para cada Opção de execução são:
+
+ 1. **Opção 1:** Nesta opção, deve ser feito o download e importação de um Appliance Virtual (arquivo .ova) e execução do ambiente virtualizado utilizando VirtualBox. Para tanto, são necessários: Sistema Operacional Microsoft Windows 10 ou superior e distribuições Linux baseada em Ubuntu versão 20.04 ou mais recente: Ubuntu, Kubuntu, Xubuntu e variantes), processador 64 bits com no mínimo 4 núcleos e flag de virtualzação VT-x ativada na BIOS, 4GB de memória RAM para uso exclusivo no experimento, VirtualBox 7.1 ou superior com Extension Pack correspondente à versão do VirtualBox.
+ 2. **Opção 2:** Nesta opção, todo experimento será executado em ambiente local através do download e execução automatizada de todos os componentes utilizando Docker. Para isto, são necessários: Sistema Operacional Linux baseado em Ubuntu versão 20.04 ou mais recente: Ubuntu, Kubuntu, Xubuntu e variantes), processador 64 bits com no mínimo 4 núcleos, 4GB de memória RAM para uso exclusivo no experimento, Docker Engine versão 26 ou superior e alguns pacotes disponíveis no repositório oficial (ver dependências); ou
+ 3. **Opção 3:** Nesta opção, o ambiente do experimento estará em execução em servidor remoto, em que apenas será necessário o acesso ao desktop virtual deste servidor para sua a execução. Esta opção requer: Sistema Operacional Microsoft Windows 10 ou superior e distribuições Linux baseada em Ubuntu versão 20.04 ou mais recente: Ubuntu, Kubuntu, Xubuntu e variantes, aplicação de remote desktop e cliente de VPN Wireguard.
 
 ---
 
 # Dependências
 
-Informações relacionadas a benchmarks utilizados e dependências para a execução devem ser descritas nesta seção. 
-Busque deixar o mais claro possível, apresentando informações como versões de dependências e processos para acessar recursos de terceiros caso necessário.
+### O experimento possui três opções disponíveis para execução, tendo cada um deles as seguintes dependências:
+
+ 1. **Opção 1:** Cumpridos os requisitos descritos na seção anterior, referentes a **Opção 1**, esta opção não possui dependências.
+ 2. **Opção 2:** Cumpridos os requisitos descritos na seção anterior, referentes a **Opção 2**, é necessário certificar-se que o Docker Engine versão 26 ou superior esteja instalado conforme descrito na [página oficial da ferramenta] (https://docs.docker.com/engine/install/ubuntu/), bem como a seção [postinstall](https://docs.docker.com/engine/install/linux-postinstall/), além dos pacotes __curl__, __rsync__, __wget__ e __git__ instalados.
+ 3. **Opção 3:** Em Sistema Operacional Linux baseado em Ubuntu versão 20.04 ou mais recente: Ubuntu, Kubuntu, Xubuntu e variantes, é necessário a instalação de aplicação com capacidade de execução RDP (sugere-se xrdp, vinagre ou remmina). Em Sistema Operacional Microsoft Windows 10 ou superior a aplicação RDP é nativa. Em ambos sistemas operacionais, é requisito a instalação de [cliente de VPN Wireguard](https://www.wireguard.com/install/)
 
 ---
 
 # Preocupações com segurança
 
-Caso a execução do artefato ofereça algum tipo de risco para os avaliadores. Este risco deve ser descrito e o processo adequado para garantir a segurança dos revisores deve ser apresentado.
+### O experimento possui três opções disponíveis para execução, tendo cada um deles as seguintes preocupações com segurança:
+
+ 1. **Opção 1:** Por tratar-se de execução de Appliance pronta e virtualizada em ambiente auto contido, não há considerações quanto a preocupações de segurança nesta opção.
+ 2. **Opção 2:** Durante a execução do conjunto de contêineres envolvidos, dependendo das configurações do dispositivo que estiver hospedando o experimento, as portas **3000**, **8000** e **8080** poderão estar abertas para a rede local, dependendo das configurações de firewall, encaminhamento de portas e perfil de segurança das interfaces de rede. 
+ 3. **Opção 3:** Por tratar-se de ambiente auto contido e sendo executado em servidor remoto, as implicações de segurança são inerente ao vazamento das credenciais da VPN e do acesso ao servidor. As ações de contenção do ambiente para a proteção do sistema operacional remoto foram tratadas em nível de redução de privilégios, restrição do uso da rede para acesso somente à rede local exclusiva do host e mecanismo de auto destruição e recuperação para o estado anterior, caso necessário.
+
+#### Preocupações com segurança adicionais
+
+Cabe ressaltar que todas as senhas, chaves de API e outros elementos secretos dos componentes foram gerados para o propósito da demonstração do experimento, de tal forma que sua força de segurança foram propositalmente baixadas para facilitar o experimento. As senhas, chaves de API e chaves RSA do SSH utilizada são descartáveis e servem apenas ao propósito do experimento.
 
 ---
 
