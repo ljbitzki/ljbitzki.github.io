@@ -23,7 +23,7 @@ Este README.md está organizado nas seguintes seções:
 4.  **Informações básicas:** Descrição dos componentes e requisitos mínimos para a execução do experimento.
 5.  **Dependências:** Informação sobre as dependências necessárias.
 6.  **Preocupações com segurança:** Lista das considerações e preocupações com a segurança.
-7.  **Instalação:** Relação opções para a realização do experimento, bem como as instruções individuais de cada opção.
+7.  **Instalação:** Relação de opções para a realização do experimento, bem como as instruções individuais de cada opção.
 8.  **Teste mínimo:** Instruções para a execução das simulações.
 9.  **Experimentos:** Informações de replicação das reivindicações.
 10.  **Licença:** Informações sobre a licença do projeto.
@@ -48,7 +48,7 @@ Os selos considerados são:
  2. **Opção 2:** Download  de todos os contêineres envolvidos e execução destes, localmente em um desktop ou laptop (testado em SO baseada em Ubuntu versão 20.04 ou mais recente: Ubuntu, Kubuntu, Xubuntu e variantes); ou
  3. **Opção 3:** Acesso, através de Remote Desktop utilizando VPN Wireguard, a uma máquina virtual rodando o ambiente auto-contido já preparado para o experimento. Esta opção é **idêntica** à Opção 1, porém, encontra-se disponível, em execução, em servidor remoto, sendo disponibilizada apenas no intuito de facilitar a reprodução do experimento com o mínimo de setup necessário por parte da comiisão avaliadora. O ambiente como usuário e senha **experimento/experimento**
 
-### Requisitos de software e hardware para cada Opção de execução são:
+#### Requisitos de software e hardware para cada Opção de execução:
 
  1. **Opção 1:** Nesta opção, deve ser feito o download e importação de um Appliance Virtual (arquivo .ova) e execução do ambiente virtualizado utilizando VirtualBox. Para tanto, são necessários: Sistema Operacional Microsoft Windows 10 ou superior e distribuições Linux baseada em Ubuntu versão 20.04 ou mais recente: Ubuntu, Kubuntu, Xubuntu e variantes), processador 64 bits com no mínimo 4 núcleos e flag de virtualzação VT-x ativada na BIOS, 4GB de memória RAM para uso exclusivo no experimento, VirtualBox 7.1 ou superior com Extension Pack correspondente à versão do VirtualBox.
  2. **Opção 2:** Nesta opção, todo experimento será executado em ambiente local através do download e execução automatizada de todos os componentes utilizando Docker. Para isto, são necessários: Sistema Operacional Linux baseado em Ubuntu versão 20.04 ou mais recente: Ubuntu, Kubuntu, Xubuntu e variantes), processador 64 bits com no mínimo 4 núcleos, 4GB de memória RAM para uso exclusivo no experimento, Docker Engine versão 26 ou superior e alguns pacotes disponíveis no repositório oficial (ver dependências); ou
@@ -111,9 +111,9 @@ _(Caso alguma dependência ou requisito anteriormente descrito não tenham sido 
 
 ### **Opção 3: Acesso _remote desktop_ ao ambiente em servidor remoto**
 
-1. Aguardando preparação
-2. Aguardando preparação
-3. Aguardando preparação
+1. Em avaliação de viabilidade
+2. Em avaliação de viabilidade
+3. Em avaliação de viabilidade
 
 ---
 
@@ -121,9 +121,9 @@ _(Caso alguma dependência ou requisito anteriormente descrito não tenham sido 
 
 #### O experimento possui três opções disponíveis para execução, tendo cada um deles os seguintes testes mínimos:
 
-### **Opção 1: Appliance de VirtualBox**
+### **Opções 1 e 3: (Appliance de VirtualBox Acesso _remote desktop_ ao ambiente em servidor remoto)**
 
-Estando logado na máquina virtual recém importada, abrir o terminal e executar:
+Estando na máquina virtual recém importada, abrir o terminal e executar:
 
 ```bash
 docker ps -a
@@ -151,15 +151,6 @@ Caso o retorno seja uma lista vazia, o Docker Engine estará pronto para a execu
 
 <img src="https://github.com/ljbitzki/ljbitzki.github.io/blob/master/Screenshot_20250525_143226.png" alt="Import 06" style="float: left; width: 50%; height: auto;">
 
-### **Opção 3: Acesso _remote desktop_ ao ambiente em servidor remoto**
-
-Estando logado no servidor remoto, abrir o terminal e executar:
-```bash
-docker ps -a
-```
-Caso o retorno seja uma lista vazia, o Docker Engine estará pronto para a execução do experimento.
-
-<img src="https://github.com/ljbitzki/ljbitzki.github.io/blob/master/Screenshot_20250525_142859.png" alt="Import 07" style="float: left; width: 50%; height: auto;">
 
 ---
 
@@ -189,12 +180,17 @@ Observar a implantação da regra de firewall permitindo o acesso à porta 80 t�
 
 <img src="https://github.com/ljbitzki/ljbitzki.github.io/blob/master/Screenshot_20250525_150925.png" alt="Import 09" style="float: left; width: 50%; height: auto;">
 
-
 ## Reivindicações: Cenário 2 - Mitigação automatizada de ataque DoS
 
-1. Abrir o navegador no servidor virtual e acessar o [Netbox](http://localhost:8080/ipam/services/) e o [Grafana](http://localhost:3000/public-dashboards/7d7b1678f7e94829a1816723c251e934?refresh=auto)
+#### Utilizando as **Opções 1 e 3 (Appliance de VirtualBox e _remote desktop_ no ambiente em servidor remoto**)
 
-Note que o Netbox tem como usuário e senha **admin/admin**
+1. Abrir no navegador **da máquina virtual** o [Netbox](http://localhost:8080/ipam/services/) e o [Grafana](http://localhost:3000/public-dashboards/7d7b1678f7e94829a1816723c251e934?refresh=auto)
+
+#### Utilizando a **Opção 2 (Execução de contêineres localmente)**
+
+1. Abrir no navegador do host que está executando os contêineres o [Netbox](http://localhost:8080/ipam/services/) e o [Grafana](http://localhost:3000/public-dashboards/7d7b1678f7e94829a1816723c251e934?refresh=auto)
+
+Note que em ambos casos o Netbox tem como usuário e senha **admin/admin**
 
 2. No Netbox, verifique que há um serviço HTTP para o _device_ container-nginx. Este serviço foi aplicado como regra de firewall assim que o nginx ficou disponível.
 
