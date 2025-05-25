@@ -1,5 +1,5 @@
 # TrueState-SNA: Orquestração Segura e Declarativa de Firewalls Baseada em Fonte Única de Verdade
-
+[![Licença](https://img.shields.io/badge/License-GNU%20GPL-blue)](https://opensource.org/licenses/GNU)
 ### Objetivo do Artefato:
 Este artefato tem como objetivo exemplificar o funcionamento prático de um cenário real de aplicação do **TrueState-SNA**, em que dois cenários são simulados e a execução das funcionalidades são demonstradas.
 
@@ -20,12 +20,12 @@ Este README.md está organizado nas seguintes seções:
 1.  **Título, Objetivo e Resumo:** Título do projeto, objetivo do artefato e resumo do artigo.
 2.  **Estrutura do README.md:** A presente estrutura.
 3.  **Selos considerados:** Lista dos Selos a serem considerados no processo de avaliação.
-4.  **Informações básicas:**
-5.  **Dependências:**
-6.  **Preocupações com segurança:** Lista das preocupações com a segurança.
-7.  **Instalação:** Instruções passo a passo para instalar a ferramenta.
-8.  **Teste mínimo:** Instruções para construir e executar a ferramenta usando Docker.
-9.  **Experimentos:** Instruções para configurar as chaves de API.
+4.  **Informações básicas:** Descrição dos componentes e requisitos mínimos para a execução do experimento.
+5.  **Dependências:** Informação sobre as dependências necessárias.
+6.  **Preocupações com segurança:** Lista das considerações e preocupações com a segurança.
+7.  **Instalação:** Relação opções para a realização do experimento, bem como as instruções individuais de cada opção.
+8.  **Teste mínimo:** Instruções para a execução das simulações.
+9.  **Experimentos:** Informações de replicação das reivindicações.
 10.  **Licença:** Informações sobre a licença do projeto.
 
 ---
